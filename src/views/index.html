@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+   
+    <title><%= title%></title>
+    <% if (css && css.length) {%> <% css.forEach((csspath) => { %>
+    <link href="<%=csspath%>" rel="stylesheet" />
+    <%})%> <%}%>
+  </head>
+  <body>
+    <div id="app"></div>
+    <% if (jses && jses.length) {%> <% jses.forEach((jspath) => { %>
+    <script type="text/javascript" src="<%=jspath%>"></script>
+    <%})%> <%}%>
+    <script>
+      if (!window.Promise) {
+        document.writeln(
+          '<script src="https://cdn.myweimai.com/m/surgery/public/vendors/es6-promise.min.js"' +
+            '>' +
+            '<' +
+            '/' +
+            'script>'
+        )
+      }
+    </script>
+  </body>
+</html>
